@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowWise - Menstrual Health App</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; }
+        header { background-color: #e91e63; color: white; padding: 15px; text-align: center; }
+        nav { display: flex; justify-content: space-around; background-color: #fff; padding: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); flex-wrap: wrap; }
+        nav a { text-decoration: none; color: #e91e63; font-weight: bold; margin: 5px; }
+        section { padding: 20px; margin: 10px; background-color: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); display: none; }
+        section.active { display: block; }
+        h2 { color: #e91e63; }
+        form { display: flex; flex-direction: column; }
+        label { margin-top: 10px; }
+        input, select, button { margin-top: 5px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background-color: #e91e63; color: white; border: none; cursor: pointer; }
+        #calendar { height: 200px; background-color: #f0f0f0; text-align: center; padding: 20px; } /* Placeholder for calendar */
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FlowWise</h1>
+        <p>Your companion for menstrual health education and tracking</p>
+    </header>
+
+    <nav>
+        <a href="#profile" onclick="showSection('profile')">Profile</a>
+        <a href="#tracking" onclick="showSection('tracking')">Tracking</a>
+        <a href="#calendar" onclick="showSection('calendar')">Calendar</a>
+        <a href="#notifications" onclick="showSection('notifications')">Notifications</a>
+        <a href="#analytics" onclick="showSection('analytics')">Analytics</a>
+        <a href="#education" onclick="showSection('education')">Education</a>
+        <a href="#wellbeing" onclick="showSection('wellbeing')">Well-Being</a>
+        <a href="#data" onclick="showSection('data')">Data & Sync</a>
+        <a href="#privacy" onclick="showSection('privacy')">Privacy</a>
+        <a href="#support" onclick="showSection('support')">Support</a>
+        <a href="#nice" onclick="showSection('nice')">Nice-to-Have</a>
+    </nav>
+
+    <section id="profile" class="active">
+        <h2>User Profile & Onboarding</h2>
+        <form id="profileForm">
+            <label for="age">Age:</label>
+            <input type="number" id="age" placeholder="Enter your age">
+
+            <label for="cycleHistory">Cycle History:</label>
+            <input type="text" id="cycleHistory" placeholder="e.g., Average cycle length">
+
+            <label for="goals">Goals:</label>
+            <select id="goals">
+                <option value="">Select goal</option>
+                <option value="track">Track cycles</option>
+                <option value="educate">Learn more</option>
+                <option value="plan">Pregnancy planning</option>
+            </select>
+
+            <h3>Menstrual Health Questionnaire</h3>
+            <label>Do you experience irregular periods?</label>
+            <input type="radio" name="irregular" value="yes"> Yes
+            <input type="radio" name="irregular" value="no"> No
+
+            <label>Options:</label>
+            <input type="checkbox" id="pregnancy"> Pregnancy planning
+            <input type="checkbox" id="birthControl"> Birth control use
+
+            <button type="submit">Save Profile</button>
+        </form>
+    </section>
+
+    <section id="tracking">
+        <h2>Cycle Tracking & Logging</h2>
+        <form id="trackingForm">
+            <label for="periodStart">Period Start Date:</label>
+            <input type="date" id="periodStart">
+
+            <label for="periodEnd">Period End Date:</label>
+            <input type="date" id="periodEnd">
+
+            <label for="flowIntensity">Flow Intensity:</label>
+            <select id="flowIntensity">
+                <option value="light">Light</option>
+                <option value="medium">Medium</option>
+                <option value="heavy">Heavy</option>
+            </select>
+
+            <h3>Symptoms Logging</h3>
+            <input type="checkbox" id="cramps"> Cramps
+            <input type="checkbox" id="mood"> Mood swings
+            <input type="checkbox" id="fatigue"> Fatigue
+            <input type="checkbox" id="headaches"> Headaches
+
+            <label for="bbt">Basal Body Temperature:</label>
+            <input type="number" id="bbt" step="0.1" placeholder="e.g., 36.5">
+
+            <label for="cervicalMucus">Cervical Mucus/Ovulation Signs:</label>
+            <input type="text" id="cervicalMucus" placeholder="Describe">
+
+            <label for="sexualActivity">Sexual Activity & Contraception:</label>
+            <input type="text" id="sexualActivity" placeholder="Log details">
+
+            <button type="submit">Log Entry</button>
+        </form>
+    </section>
+
+    <section id="calendar">
+        <h2>Calendar & Timeline</h2>
+        <div id="calendar">Placeholder for Cycle Calendar (Past & predicted periods, ovulation window, fertile days, PMS forecast). In a full app, add a library like FullCalendar.js here.</div>
+    </section>
+
+    <section id="notifications">
+        <h2>Notifications & Reminders</h2>
+        <ul>
+            <li>Period start reminders</li>
+            <li>Ovulation alerts</li>
+            <li>Birth control reminders (pill/patch/ring/IUD check)</li>
+            <li>Symptom check prompts</li>
+        </ul>
+        <p>Note: Browser notifications require user permission. Add JS code for Notification API in a real app.</p>
+    </section>
+
+    <section id="analytics">
+        <h2>Analytics & Insights</h2>
+        <p>Cycle length & variation statistics</p>
+        <p>Pattern analysis (mood vs hormones, symptom trends)</p>
+        <p>Cycle predictions & charts</p>
+        <p>Regular/irregular cycle detection</p>
+        <div id="charts">Placeholder for charts (Add Chart.js for visualizations in a full app).</div>
+    </section>
+
+    <section id="education">
+        <h2>Education & Content</h2>
+        <ul>
+            <li>Menstrual health articles</li>
+            <li>Fertility info</li>
+            <li>Lifestyle guidance (nutrition, workouts, pregnancy planning)</li>
+        </ul>
+        <p>Example: The average cycle is 28 days, but it can vary. Myth: You can't exercise during your period. Fact: Light activity can help! Tip: Stay hydrated and eat iron-rich foods.</p>
+    </section>
+
+    <section id="wellbeing">
+        <h2>Well-Being Features</h2>
+        <form id="wellbeingForm">
+            <h3>Mood Tracking</h3>
+            <select id="mood">
+                <option value="happy">Happy</option>
+                <option value="stressed">Stressed</option>
+                <option value="tired">Tired</option>
+            </select>
+
+            <h3>Habit Tracking</h3>
+            <input type="checkbox" id="sleep"> Sleep
+            <input type="checkbox" id="hydration"> Hydration
+            <input type="checkbox" id="exercise"> Exercise
+
+            <label for="stress">Stress/Anxiety Logs:</label>
+            <input type="text" id="stress" placeholder="Describe">
+
+            <p>Suggestions: Try meditation or light exercise.</p>
+
+            <button type="submit">Save</button>
+        </form>
+    </section>
+
+    <section id="data">
+        <h2>Data & Sync</h2>
+        <p>Backup & cloud sync (Use localStorage for now; add Firebase for real sync).</p>
+        <p>Device health integrations (Apple Health, Google Fit, wearables - requires APIs).</p>
+    </section>
+
+    <section id="privacy">
+        <h2>Privacy & Security</h2>
+        <p>Strong data protection (Data stored locally via browser).</p>
+        <p>Optional password/biometric lock (Add JS for this in advanced versions).</p>
+        <p>Transparency: No data shared without consent.</p>
+    </section>
+
+    <section id="support">
+        <h2>Support & Community</h2>
+        <p>FAQs, chat support (Add links or forms here).</p>
+        <p>Anonymous discussion forums (optional - integrate Disqus or similar).</p>
+    </section>
+
+    <section id="nice">
+        <h2>Nice-to-Have Features</h2>
+        <ul>
+            <li>AI-based cycle predictions (Add ML libraries later).</li>
+            <li>Symptom-to-condition insights (e.g., endometriosis flags).</li>
+            <li>Partner mode (limited shared view).</li>
+            <li>Dark mode (Add CSS toggle).</li>
+            <li>Offline functionality (Use Service Workers for PWA).</li>
+        </ul>
+    </section>
+
+    <script>
+        // Show/hide sections
+        function showSection(id) {
+            document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        // Form handlers with localStorage
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            localStorage.setItem('age', document.getElementById('age').value);
+            localStorage.setItem('cycleHistory', document.getElementById('cycleHistory').value);
+            // Add more as needed
+            alert('Profile saved locally!');
+        });
+
+        document.getElementById('trackingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Save to localStorage as JSON array for multiple entries
+            let entries = JSON.parse(localStorage.getItem('trackingEntries') || '[]');
+            entries.push({
+                start: document.getElementById('periodStart').value,
+                end: document.getElementById('periodEnd').value
+                // Add more fields
+            });
+            localStorage.setItem('trackingEntries', JSON.stringify(entries));
+            alert('Entry logged locally!');
+        });
+
+        document.getElementById('wellbeingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            localStorage.setItem('mood', document.getElementById('mood').value);
+            // Add more
+            alert('Well-being data saved locally!');
+        });
+
+        // Load saved data on page load (example for profile)
+        window.onload = function() {
+            if (localStorage.getItem('age')) {
+                document.getElementById('age').value = localStorage.getItem('age');
+                document.getElementById('cycleHistory').value = localStorage.getItem('cycleHistory');
+            }
+        };
+    </script>
+</body>
+</html>
