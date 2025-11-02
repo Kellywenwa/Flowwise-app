@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#e91e63"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlowWise - Menstrual Health App</title>
@@ -20,7 +21,10 @@
         ul { list-style-type: none; padding: 0; }
         li { margin-bottom: 10px; }
     </style>
-</head>
+</head@media (max-width: 600px) {
+  nav { flex-direction: column; }
+  section { padding: 10px; margin: 5px; }
+}>
 <body>
     <header>
         <h1>FlowWise</h1>
@@ -238,6 +242,15 @@
                 document.getElementById('cycleHistory').value = localStorage.getItem('cycleHistory');
             }
         };
-    </script>
+   <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('Service Worker registered'))
+        .catch(err => console.log('Service Worker registration failed:', err));
+    });
+  }
+</script> </script>
 </body>
+
 </html>
